@@ -11,53 +11,59 @@ pub struct Space {
 }
 
 #[allow(dead_code)]
-pub struct Device {
-    name: String,
-    device_type: DeviceType,
-    description: String,
-}
-
-#[allow(dead_code)]
 pub enum DeviceType {
     Thermometer(Therm),
     SmartSocket(Socket),
-    Void,
 }
+сд
+pub struct Device {
+    _name: String,
+    _device_type: DeviceType,
+}
+
 #[allow(dead_code)]
 pub struct Therm {
+    name: String,
     temperature: i16,
 }
 
 #[allow(dead_code)]
 pub struct Socket {
+    name: String,
     state: bool,
     power_consumption: u32,
 }
 
 impl Home {
-    pub fn new() -> Home {
+    pub fn _new() -> Home {
         Home {
             name: String::new(),
             spaces: Vec::new(),
         }
     }
 
-    pub fn change_name(&mut self, name: String){
-        self.name.push_str(&name)
+    pub fn _change_name(&mut self, _name: String) -> Result<(), String> {
+        // self.name.push_str(&name)
+
+        todo!()
     }
 
-    pub fn add_space(&mut self, space: Space) {
-        self.spaces.push(space);
+    pub fn _add_space(&mut self, _space: Space) -> Result<(), String> {
+        // self.spaces.push(space);
+
+        todo!()
     }
 
-    pub fn remove_space(&mut self, space_name: String) {
-        let it = self
-            .spaces
-            .iter()
-            .position(|i| *i.name == space_name)
-            .unwrap();
+    pub fn _remove_space(&mut self, _space_name: String) -> Result<(), String> {
+        // let it = self
+        //     .spaces
+        //     .iter()
+        //     .position(|i| *i.name == space_name)
+        //     .unwrap();
+        //
+        // self.spaces.remove(it);
 
-        self.spaces.remove(it);
+        todo!()
     }
 
     pub fn request_list(&self) -> &Vec<Space> {
@@ -66,29 +72,26 @@ impl Home {
 }
 
 impl Space {
-    pub fn new() -> Space {
-        Space {
-            name: String::new(),
-            devices: Vec::new(),
-        }
+    pub fn _change_name(&mut self, _name: String) -> Result<(), String> {
+        // self.name.push_str(&name);
+
+        todo!()
     }
 
-    pub fn change_name(&mut self, name: String){
-        self.name.push_str(&name);
+    pub fn _add_device(&mut self, _device: Device) -> Result<(), String> {
+        todo!()
     }
 
-    pub fn add_device(&mut self, device: Device) {
-        self.devices.push(device);
-    }
+    pub fn _remove_device(&mut self, _device_name: String) -> Result<(), String> {
+        // let it = self
+        //     .devices
+        //     .iter()
+        //     .position(|i| *i.name == device_name)
+        //     .unwrap();
+        //
+        // self.devices.remove(it);
 
-    pub fn remove_device(&mut self, device_name: String) {
-        let it = self
-            .devices
-            .iter()
-            .position(|i| *i.name == device_name)
-            .unwrap();
-
-        self.devices.remove(it);
+        todo!()
     }
 
     pub fn request_list(&self) -> &Vec<Device> {
@@ -97,33 +100,31 @@ impl Space {
 }
 
 impl Device {
-    pub fn new() -> Device {
-        Device {
-            name: String::new(),
-            device_type: DeviceType::Void,
-            description: String::new(),
-        }
-    }
-
-    pub fn change_name(&mut self, name: String){
-        self.name.push_str(&name)
+    fn _name(&self) -> String {
+        todo!()
     }
 }
 
-impl Default for Home {
-    fn default() -> Self {
-        Self::new()
+impl Therm {
+    fn _new(_name: String, _temperature: i16) -> Self {
+        todo!()
+    }
+
+    fn _get_temp(&self) -> i16 {
+        todo!()
     }
 }
 
-impl Default for Space {
-    fn default() -> Self {
-        Self::new()
+impl Socket {
+    fn _new(_name: String, _state: bool, _power: u32) -> Self {
+        todo!()
     }
-}
 
-impl Default for Device {
-    fn default() -> Self {
-        Self::new()
+    fn _change_state(&self) {
+        todo!()
+    }
+
+    fn _get_power(&self) -> u32 {
+        todo!()
     }
 }
